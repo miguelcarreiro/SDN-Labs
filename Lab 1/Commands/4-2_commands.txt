@@ -32,7 +32,6 @@ ip netns exec far ip link set dev lo up
 
 ip netns exec near ip route add 10.0.13.0/24 dev veth3
 ip netns exec far ip route add 10.0.11.0/24 dev veth4
-ip route add 10.0.11.0/24 dev veth1
 ip route add 10.0.12.0/24 dev veth1
 ip route add 10.0.13.0/24 dev veth1
 
