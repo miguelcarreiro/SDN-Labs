@@ -1,0 +1,62 @@
+## 4.3 Commands ##
+
+# Add R1 and R2 namespaces
+ip netns add r1
+ip netns add r2
+
+# R1-R2 interface
+ip link add r1.r2 type veth peer name r2.r1
+
+ip link set r1.r2 netns r1
+ip link set r2.r1 netns r2
+
+ip netns exec r1 ip addr add 10.0.12.1/24 dev r1.r2
+ip netns exec r1 ip link set dev r1.r2 up
+
+ip netns exec r2 ip addr add 10.0.12.2/24 dev r2.r1
+ip netns exec r2 ip link set dev r2.r1 up
+
+# Net1 namespace
+
+ip netns add net1
+ip link add r1.1 type veth peer name veth1.1
+ip link set r1.1 netns r1
+ip link set veth1.1 netns net1
+
+ip netns exec r1 ip addr add 10.0.1.1/24 dev r1.1
+ip netns exec r1 ip link set dev r1.1 up
+
+ip netns exec net1 ip addr add 10.0.1.2/24 dev veth1.1
+ip netns exec net1 ip link set dev veth1.1 up
+
+# Add host IP addrs (Use same peer as veth1.1?)
+
+# Net2 namespace
+
+ip netns add net2
+ip link add r2.2 type veth peer name veth2.2
+ip link set r2.2 netns r2
+ip link set veth2.2 netns net2
+
+ip netns exec r2 ip addr add 10.0.2.1/24 dev r2.2
+ip netns exec r2 ip link set dev r2.2 up
+
+ip netns exec net2 ip addr add 10.0.2.2/24 dev veth2.2
+ip netns exec net2 ip link set dev veth2.2 up
+
+# Add host IP addrs (Use same peer as veth2.2?)
+
+# Net 3 namespace
+
+ip netns add net3
+ip link add r1.3 type veth peer name veth3.1
+ip link set r1.3 netns r1
+ip link set veth3.1 netns net3
+
+ip netns exec r1 ip addr add 10.0.3.1/24 dev r1.3
+ip netns exec r1 ip link set dev r1.3 up
+
+ip netns exec net3 ip addr add 10.0.3.2/24 dev veth3.1
+ip netns exec net3 ip link set dev veth3.1 up
+
+# Add host IP addrs (Use same peer as veth3.1?)
