@@ -5,7 +5,7 @@
 Namespace: net1
 
 veth interface names | IP addresses
-R1 interface: veth1.1 | 10.0.1.1/24
+R1 interface: veth1.1 | 10.0.1.2/24
 H1: veth1.10 | 10.0.1.10/24
 H2: veth1.20 | 10.0.1.20/24
 
@@ -23,15 +23,24 @@ H4: veth2.40 | 10.0.2.40/24
 Namespace: net3
 
 veth interface names | IP addresses
-R1 interface: veth3.1 | 10.0.3.1/24
+R1 interface: veth3.1 | 10.0.3.2/24
 H5: veth3.50 | 10.0.3.50/24
 H6: veth3.60 | 10.0.3.60/24
 H7: veth3.70 | 10.0.3.70/24
 
-# Interface R1-R2
+# Router 1
 
-Namespace: int12
+Namespace: r1
 
 veth interface names | IP addresses
-R1 interface: veth12.1 | 10.0.12.1/24
-R2 interface: veth12.2 | 10.0.12.2/24
+Net1 interface: r1.1 | 10.0.1.1/24
+Net3 interface: r1.3 | 10.0.3.1/24
+R2 interface: r1.r2 | 10.0.12.1/24
+
+# Router 2
+
+Namespace: r2
+
+veth interface names | IP addresses
+Net2 interface: r2.2 | 10.0.2.1/24
+R1 interface: r2.r1 | 10.0.12.2/24
