@@ -2,45 +2,76 @@
 
 # Network 1
 
-Namespace: net1
+# Host 1
+
+Namespace: host1
 
 veth interface name | IP address
-R1 interface: veth1.1 | 10.0.1.2/24
-H1: veth1.10 | 10.0.1.10/24
-H2: veth1.20 | 10.0.1.20/24
+Net1 interface: vhost1.10 | 10.0.1.11/24
+
+# Host 2
+
+Namespace: host2
+
+veth interface name | IP address
+Net1 interface: vhost1.20 | 10.0.1.21/24
 
 # Network 2
 
-Namespace: net2
+# Host 3
+
+Namespace: host3
 
 veth interface name | IP address
-R2 interface: veth2.2 | 10.0.2.2/24
-H3: veth2.30 | 10.0.2.30/24
-H4: veth2.40 | 10.0.2.40/24
+Net1 interface: vhost2.30 | 10.0.2.31/24
+
+# Host 4
+
+Namespace: host4
+
+veth interface name | IP address
+Net1 interface: vhost2.40 | 10.0.2.41/24
 
 # Network 3
 
-Namespace: net3
+# Host 5
+
+Namespace: host5
 
 veth interface name | IP address
-R1 interface: veth3.1 | 10.0.3.2/24
-H5: veth3.50 | 10.0.3.50/24
-H6: veth3.60 | 10.0.3.60/24
-H7: veth3.70 | 10.0.3.70/24
+Net1 interface: vhost3.50 | 10.0.3.51/24
+
+# Host 6
+
+Namespace: host6
+
+veth interface name | IP address
+Net1 interface: vhost3.60 | 10.0.3.61/24
+
+# Host 7
+
+Namespace: host7
+
+veth interface name | IP address
+Net1 interface: vhost3.70 | 10.0.3.71/24
 
 # Router 1
 
 Namespace: r1
 
 veth interface name | IP address
-Net1 interface: r1.1 | 10.0.1.1/24
-Net3 interface: r1.3 | 10.0.3.1/24
 R2 interface: r1.r2 | 10.0.12.1/24
+H1: veth1.10 | 10.0.1.10/24
+H2: veth1.20 | 10.0.1.20/24
+H5: veth3.50 | 10.0.3.50/24
+H6: veth3.60 | 10.0.3.60/24
+H7: veth3.70 | 10.0.3.70/24
 
 # Router 2
 
 Namespace: r2
 
 veth interface name | IP address
-Net2 interface: r2.2 | 10.0.2.1/24
 R1 interface: r2.r1 | 10.0.12.2/24
+H3: veth2.30 | 10.0.2.30/24
+H4: veth2.40 | 10.0.2.40/24
