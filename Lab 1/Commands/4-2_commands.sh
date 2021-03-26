@@ -1,3 +1,5 @@
+#!/bin/bash
+
 ## 4.2 Commands ##
 
 # Near namespace

@@ -1,3 +1,5 @@
+#!/bin/bash
+
 ## 4.1 Commands ##
 
 ip netns add examplens

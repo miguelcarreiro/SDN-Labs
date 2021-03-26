@@ -1,3 +1,4 @@
+#!/bin/bash
 ## 4.3 Commands ##
 
 # Add R1 and R2 namespaces
