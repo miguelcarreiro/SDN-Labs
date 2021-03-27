@@ -3,9 +3,11 @@
 ## 4.1 Commands ##
 
 ip netns add examplens
-ip link add veth0 type veth peer name veth1
-ip link set veth1 netns examplens
-ip netns exec examplens ip addr add 10.0.0.2/24 dev veth1
-ip netns exec examplens ip link set dev veth1 up
-ip addr add 10.0.0.1/24 dev veth0
-ip link set dev veth0 up
+ip link add external type veth peer name internal
+ip link set internal netns examplens
+
+ip netns exec examplens ip addr add 10.0.0.2/24 dev internal
+ip netns exec examplens ip link set dev internal up
+
+ip addr add 10.0.0.1/24 dev external
+ip link set dev external up
