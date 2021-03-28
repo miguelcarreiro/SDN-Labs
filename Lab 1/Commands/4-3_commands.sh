@@ -2,6 +2,7 @@
 ## 4.3 Commands ##
 
 # Add R1 and R2 namespaces
+
 ip netns add r1
 
 ip netns exec r1 ip link set dev lo up
@@ -11,6 +12,7 @@ ip netns add r2
 ip netns exec r2 ip link set dev lo up
 
 # R1-R2 interface
+
 ip link add r1.r2 type veth peer name r2.r1
 
 ip link set r1.r2 netns r1
@@ -149,8 +151,6 @@ ip netns exec host3 ip route add default dev vhost2.30 via 10.0.2.30
 
 ip netns exec r2 ip route add 10.0.2.41 dev veth2.40
 ip netns exec host4 ip route add default dev vhost2.40 via 10.0.2.40
-
-# Confirmar se o ping para hosts ñ existentes pode retornar um Host Redirect
 
 ip netns exec r1 ip route del 10.0.1.0/24 dev veth1.10 proto kernel scope link src 10.0.1.10
 ip netns exec r1 ip route del 10.0.1.0/24 dev veth1.20 proto kernel scope link src 10.0.1.20
