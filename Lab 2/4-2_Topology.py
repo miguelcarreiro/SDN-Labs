@@ -6,7 +6,6 @@ topology enables one to pass in '--topo=mytopo' from the command line.
 
 from mininet.topo import Topo
 from mininet.link import TCLink
-from mininet.log import setLogLevel, info
 
 class ThreeNodeTopo( Topo ):
     "Simple topology example."
