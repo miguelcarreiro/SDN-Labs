@@ -127,6 +127,28 @@
           "criteria": [
             {
               "type": "ETH_DST",
+              "mac": "00:00:00:00:00:03"
+            }
+          ]
+        }
+      },
+      {
+        "priority": 40000,
+        "timeout": 0,
+        "isPermanent": true,
+        "deviceId": "of:0000000000000002",
+        "treatment": {
+          "instructions": [
+            {
+              "type": "OUTPUT",
+              "port": "2"
+            }
+          ]
+        },
+        "selector": {
+          "criteria": [
+            {
+              "type": "ETH_DST",
               "mac": "00:00:00:00:00:04"
             }
           ]
