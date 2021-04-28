@@ -6,5 +6,3 @@ curl -X DELETE --header 'Accept: application/json' 'http://localhost:8181/onos/v
 
 # Not needed
 curl -X POST -H "content-type:application/json" http://localhost:8181/onos/v1/network/configuration -d @onos-config.json --user onos:rocks
-
-
