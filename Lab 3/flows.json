@@ -119,7 +119,7 @@
           "instructions": [
             {
               "type": "OUTPUT",
-              "port": "2"
+              "port": "1"
             }
           ]
         },
