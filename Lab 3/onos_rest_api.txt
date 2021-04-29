@@ -1,4 +1,4 @@
-# Add flows
+# Add flows (json array with one or more flows)
 curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d @flows.json 'http://localhost:8181/onos/v1/flows' --user onos:rocks
 
 # Delete flow
