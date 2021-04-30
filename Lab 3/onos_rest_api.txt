@@ -4,5 +4,5 @@ curl -X POST --header 'Content-Type: application/json' --header 'Accept: applica
 # Delete flow
 curl -X DELETE --header 'Accept: application/json' 'http://localhost:8181/onos/v1/flows/of%3A0000000000000003/49821071350773381' --user onos:rocks
 
-# Delete flows
+# Delete flows (json array with one or more flows)
 curl -X DELETE --header 'Accept: application/json' 'http://localhost:8181/onos/v1/flows' -d @flows.json --user onos:rocks
