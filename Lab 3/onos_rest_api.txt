@@ -6,6 +6,3 @@ curl -X DELETE --header 'Accept: application/json' 'http://localhost:8181/onos/v
 
 # Delete flows
 curl -X DELETE --header 'Accept: application/json' 'http://localhost:8181/onos/v1/flows' -d @flows.json --user onos:rocks
-
-# Not needed
-curl -X POST -H "content-type:application/json" http://localhost:8181/onos/v1/network/configuration -d @onos-config.json --user onos:rocks
