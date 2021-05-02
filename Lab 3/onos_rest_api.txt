@@ -1,5 +1,5 @@
 # Add flows (json array with one or more flows)
-curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d @<json_filename> 'http://localhost:8181/onos/v1/flows' --user onos:rocks
+curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d @flows.json 'http://localhost:8181/onos/v1/flows' --user onos:rocks
 
 # Delete flow
 curl -X DELETE --header 'Accept: application/json' 'http://localhost:8181/onos/v1/flows/<id_device>/<id_flow>' --user onos:rocks
